@@ -207,6 +207,7 @@ html:not(.js) .mani{height:auto}
 .area__body>p{max-width:34rem;color:var(--mute)}
 .area__body h3{font:500 1.35rem/1.25 var(--f-b);margin-bottom:.6rem}
 .area__txt p{color:var(--mute);max-width:32rem}
+.area__txt .area__intro{margin-bottom:1.6rem;color:var(--g1)}
 .area__body--labor{gap:2rem;width:100%}
 .situ{margin-top:1.4rem;border-top:1px solid var(--line)}
 .situ li{padding:.9rem .2rem;border-bottom:1px solid var(--line);font:400 1.25rem/1.2 var(--f-b);transition:padding .5s var(--ease),color .3s}
