@@ -176,6 +176,43 @@
   $$('[data-open-wa]').forEach((b) => b.addEventListener('click', () => sheet.showModal()));
   sheet.addEventListener('click', (e) => { if (e.target === sheet) sheet.close(); });
 
+  // "deslize para atender": o botão redondo é arrastado até o fim
+  const orb = $('#orb'), knob = $('#orbKnob');
+  if (orb && knob) {
+    let sx = 0, max = 0, dx = 0, drag = false, moved = false;
+    const setX = (v) => { dx = v; orb.style.setProperty('--x', v + 'px'); orb.style.setProperty('--p', max ? (v / max).toFixed(3) : 0); };
+    const reset = () => { orb.classList.remove('drag'); setX(0); };
+    knob.addEventListener('pointerdown', (e) => {
+      drag = true; moved = false; sx = e.clientX;
+      max = orb.clientWidth - knob.offsetWidth - 2 * knob.offsetLeft;
+      orb.classList.add('drag');
+      try { knob.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    knob.addEventListener('pointermove', (e) => {
+      if (!drag) return;
+      const v = Math.max(0, Math.min(max, e.clientX - sx));
+      if (v > 4) moved = true;
+      setX(v);
+    });
+    const end = () => {
+      if (!drag) return;
+      drag = false;
+      orb.classList.remove('drag');
+      if (moved && dx >= max * 0.78) {
+        setX(max);
+        if (navigator.vibrate) navigator.vibrate(12);
+        setTimeout(() => { sheet.showModal(); setTimeout(reset, 400); }, 180);
+      } else {
+        setX(0);
+        if (!moved) { orb.classList.remove('nudge'); void orb.offsetWidth; orb.classList.add('nudge'); }
+      }
+    };
+    knob.addEventListener('pointerup', end);
+    knob.addEventListener('pointercancel', () => { drag = false; reset(); });
+    // teclado (Enter/Espaço) abre direto, para quem não usa toque
+    orb.addEventListener('click', (e) => { if (e.detail === 0) sheet.showModal(); });
+  }
+
   const toast = $('#toast');
   let tt;
   const say = (m) => { toast.textContent = m; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 2600); };
