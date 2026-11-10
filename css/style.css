@@ -105,9 +105,9 @@ html:not(.js) .intro{display:none}
 /* ---------- Início ---------- */
 .hero{position:relative;padding:3.6rem 0 3.5rem;background:radial-gradient(130% 40% at 50% 28%,var(--wood) 0%,transparent 70%),var(--c1);display:grid;gap:0}
 .hero__photo{position:relative}
-.shot{position:relative;overflow:hidden;height:clamp(250px,72vw,330px);background:var(--c2)}
+.shot{position:relative;overflow:hidden;height:clamp(400px,122vw,560px);background:var(--c2)}
 .shot__in{position:absolute;inset:-4% 0;will-change:transform}
-.shot__img{width:100%;height:100%;object-fit:cover;object-position:16% 38%;transform:scale(1.14);transition:transform 2.8s var(--ease);filter:sepia(.22) saturate(.82) contrast(1.04) brightness(.96)}
+.shot__img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.14);transition:transform 2.8s var(--ease);filter:sepia(.22) saturate(.82) contrast(1.04) brightness(.96)}
 .go .shot__img{transform:scale(1)}
 .shot::before{content:"";position:absolute;inset:0 0 auto 0;height:34%;background:linear-gradient(rgba(21,12,9,.85),transparent);z-index:2;pointer-events:none}
 .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,var(--c1) 100%),linear-gradient(0deg,rgba(74,52,42,.22),rgba(74,52,42,.22));z-index:2;pointer-events:none}
@@ -307,7 +307,7 @@ html:not(.js) .tick path{stroke-dashoffset:0}
   .hero{grid-template-columns:1.02fr .98fr;align-items:center;gap:clamp(2rem,5vw,5rem);min-height:100svh;padding:6rem 0 4rem var(--pad)}
   .hero__body{order:1;padding:0}
   .hero__photo{order:2}
-  .shot{height:min(54svh,440px)}
+  .shot{height:min(78svh,640px)}
   .shot::before{display:none}
   .shot::after{background:linear-gradient(90deg,var(--c1) 0%,transparent 28%),linear-gradient(0deg,rgba(74,52,42,.22),rgba(74,52,42,.22))}
   .hero__photo figcaption{padding-left:1.2rem}
