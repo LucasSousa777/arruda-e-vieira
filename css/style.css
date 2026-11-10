@@ -261,6 +261,8 @@ html:not(.js) .tick path{stroke-dashoffset:0}
 .orb::after{animation-delay:1.5s}
 @keyframes ring{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.55);opacity:0}}
 .orb:hover{background:var(--c3);color:var(--cr);transform:scale(1.05)}
+.map{max-width:var(--max);height:clamp(220px,62vw,340px);margin:0 0 2rem;border:1px solid var(--line);overflow:hidden;background:var(--c2)}
+.map iframe{display:block;width:100%;height:100%;border:0;filter:sepia(.55) saturate(.7) brightness(.82) contrast(1.05)}
 .rows{max-width:var(--max);border-top:1px solid var(--line)}
 .row{position:relative;display:grid;grid-template-columns:1fr;gap:.1rem;padding:1.2rem .2rem;border-bottom:1px solid var(--line);text-decoration:none;overflow:hidden;isolation:isolate;transition:padding .5s var(--ease),color .35s}
 .row::before{content:"";position:absolute;inset:0;background:var(--cr);transform:scaleY(0);transform-origin:50% 100%;transition:transform .5s var(--ease);z-index:-1}
